@@ -438,22 +438,24 @@ function OnboardingRelative({
       </header>
       <main className="mvp-body mvp-stage">
         <h1 className="mvp-h1">Who would you like to remember?</h1>
-        <label className="mvp-field">
-          <span className="mvp-label">Their name</span>
-          <input className="mvp-input" value={name} onChange={(event) => { setName(event.target.value); setNameError('') }} placeholder="Eleanor" />
-          {nameError && <p className="mvp-error">{nameError}</p>}
-        </label>
-        <label className="mvp-field">
-          <span className="mvp-label">Date of birth</span>
-          <input
-            className="mvp-input"
-            type="date"
-            value={dateOfBirth}
-            onChange={(event) => { setDateOfBirth(event.target.value); setDobError('') }}
-          />
-          {dobError && <p className="mvp-error">{dobError}</p>}
-        </label>
-        <button className="mvp-btn mvp-btn-primary mvp-btn-block" onClick={continueOnboarding}>Continue</button>
+        <div className="mvp-form-stack">
+          <label className="mvp-field">
+            <span className="mvp-label">Their name</span>
+            <input className="mvp-input" value={name} onChange={(event) => { setName(event.target.value); setNameError('') }} placeholder="Eleanor" />
+            {nameError && <p className="mvp-error">{nameError}</p>}
+          </label>
+          <label className="mvp-field">
+            <span className="mvp-label">Date of birth</span>
+            <input
+              className="mvp-input"
+              type="date"
+              value={dateOfBirth}
+              onChange={(event) => { setDateOfBirth(event.target.value); setDobError('') }}
+            />
+            {dobError && <p className="mvp-error">{dobError}</p>}
+          </label>
+        </div>
+        <button className="mvp-btn mvp-btn-primary mvp-btn-block mvp-page-action" type="button" onClick={continueOnboarding}>Continue</button>
       </main>
     </>
   )
@@ -623,27 +625,29 @@ function RelativeFormScreen({
         <p className="mvp-lede">
           {isEditing ? 'Update their name or date of birth.' : 'Add them to your family. You can write stories about them later.'}
         </p>
-        <label className="mvp-field">
-          <span className="mvp-label">Their name</span>
-          <input
-            className="mvp-input"
-            value={name}
-            onChange={(event) => { setName(event.target.value); setNameError('') }}
-            placeholder="Eleanor"
-            autoFocus
-          />
-          {nameError && <p className="mvp-error">{nameError}</p>}
-        </label>
-        <label className="mvp-field">
-          <span className="mvp-label">Date of birth</span>
-          <input
-            className="mvp-input"
-            type="date"
-            value={dateOfBirth}
-            onChange={(event) => { setDateOfBirth(event.target.value); setDobError('') }}
-          />
-          {dobError && <p className="mvp-error">{dobError}</p>}
-        </label>
+        <div className="mvp-form-stack">
+          <label className="mvp-field">
+            <span className="mvp-label">Their name</span>
+            <input
+              className="mvp-input"
+              value={name}
+              onChange={(event) => { setName(event.target.value); setNameError('') }}
+              placeholder="Eleanor"
+              autoFocus
+            />
+            {nameError && <p className="mvp-error">{nameError}</p>}
+          </label>
+          <label className="mvp-field">
+            <span className="mvp-label">Date of birth</span>
+            <input
+              className="mvp-input"
+              type="date"
+              value={dateOfBirth}
+              onChange={(event) => { setDateOfBirth(event.target.value); setDobError('') }}
+            />
+            {dobError && <p className="mvp-error">{dobError}</p>}
+          </label>
+        </div>
         <button className="mvp-btn mvp-btn-primary mvp-btn-block mvp-page-action" type="button" onClick={save}>
           {isEditing ? 'Save changes' : 'Save person'}
         </button>

@@ -407,6 +407,16 @@ a:focus-visible {
   margin: 0 0 18px;
 }
 
+.mvp-form-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.mvp-form-stack .mvp-field {
+  margin-bottom: 0;
+}
+
 .mvp-label {
   display: block;
   margin-bottom: 8px;
